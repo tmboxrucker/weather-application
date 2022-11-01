@@ -1,0 +1,30 @@
+:root {
+    --primary-dark: #333;
+    --primary-light: #ededed;
+    --secondary-light: #fefefe;
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-light);
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 1.4em;
+    /* background-image: url('images/restaurant-background.jpg');
+    background-position: bottom;
+    background-attachment: fixed;
+    background-size: cover; */
+}
+
+input, select, button {
+    font-family: inherit;
+    font-size: inherit;
+}
