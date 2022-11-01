@@ -18,13 +18,41 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-size: 1.4em;
-    /* background-image: url('images/restaurant-background.jpg');
+    background-image: url('images/night-sky.jpg');
     background-position: bottom;
     background-attachment: fixed;
-    background-size: cover; */
+    background-size: cover;
 }
 
 input, select, button {
     font-family: inherit;
     font-size: inherit;
+}
+
+#content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color:  rgb(1, 1, 1, .7);
+    color: var(--primary-light);
+    border-top: rgb(100, 100, 100, .5) 1px solid;
 }

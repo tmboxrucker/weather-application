@@ -1,48 +1,49 @@
-const createHeader = async () => {
-    setTimeout(`console.log('inside header timeout');`, 1000);
-    console.log('past the header timeout');
-    const div = document.createElement('div');
-    return div;
+import {getURLFromName} from './api.js';
+import {setLocation} from './api.js'
+
+const createHeader = () => {
+    const test = new Promise((resolve, reject) => {
+        const div = document.createElement('div');
+        div.classList.add('header');
+        // Create a textbox to type in a city name
+        resolve(div);
+    });
+    return test;
 }
 
 const createMain = () => {
-    setTimeout(`console.log('inside main timeout');`, 1000);
-    console.log('past the main timeout');
-    const div = document.createElement('div');
-    return div;
-
+    const test = new Promise((resolve, reject) => {
+        const div = document.createElement('div');
+        div.classList.add('main');
+        // Create layout for main display
+        resolve(div);
+    });
+    return test;
 }
 
 const createFooter = () => {
-    setTimeout(`console.log('inside footer timeout');`, 1000);
-    console.log('past the footer timeout');
-    const div = document.createElement('div');
-    return div;
-
-}
-
-const setLocation = () => {
-    console.log('inside set location')
+        
+    const test = new Promise((resolve, reject) => {
+        const div = document.createElement('div');
+        div.classList.add('footer');
+        // Create the typical footer information
+        resolve(div);
+    });
+    return test;
 }
 
 export const initialPageLoad = async () => {
     console.log(`let's get started`)
     const contentMain = document.getElementById('content');
-    
-    // await let child = createHeader();
 
-    // contentMain.appendChild(child);
-
-    const promise1 = createHeader();
-    const promise2 = createMain();
-    const promise3 = createFooter();
-
-    Promise.all([promise1, promise2, promise3]).then((values) => {
+    await Promise.all([createHeader(), createMain(), createFooter()]).then((values) => {
         console.log(values);
-    })
-    // await contentMain.appendChild(createHeader());
-    // await contentMain.appendChild(createMain());
-    // await contentMain.appendChild(createFooter());
+        values.forEach(element => {
+            contentMain.appendChild(element);
+        });
+    });
+    
+    const initialLocation = getURLFromName('Cincinnati');
 
-    setLocation()
+    setLocation(initialLocation);
 }
