@@ -3,7 +3,17 @@ export const getURLFromName = (name) => {
 }
 
 export const setLocation = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }
+    catch (err) {
+        console.log(err);
+        return 'undefined';
+    }
 }
