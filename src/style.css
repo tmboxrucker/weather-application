@@ -39,6 +39,31 @@ input, select, button {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
+    margin: 1em;
+}
+
+.searchForm {
+    display: flex;
+    gap: 10px;
+}
+
+.searchCity {
+    border-radius: 5px;
+    padding: 1rem;
+    box-sizing: border-box;
+    height: 40px;
+    width: 12em;    
+    background-color:  rgb(255, 255, 255, .4);
+    border: none;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+.searchCityButton {
+    padding: 5px;
 }
 
 .main {
@@ -46,6 +71,47 @@ input, select, button {
     flex: 1;
     align-items: flex-start;
     flex-direction: column;
+    margin-top: 10em;
+    margin-left: 10%;
+    gap: 2rem;
+    animation: fadeIn 2s;
+}
+
+#upperDiv > p {
+    font-size: 2rem;
+}
+
+#upperDiv > h1 {
+    font-size: 4rem;
+}
+
+#lowerDiv {
+    display: flex;
+    gap: 1rem;
+}
+
+#tempContainer {
+    display: flex;
+}
+
+#tempContainer > h2 {
+    font-size: 10rem;
+    line-height: 7rem;
+}
+
+#tempContainer > p {
+    font-size: 2rem;
+    position: relative;
+    bottom: 2rem;
+}
+
+#informationContainer {
+    display: flex;
+    flex-direction: column;
+    border-left: var(--primary-light) 1px solid;
+    padding-left: 1rem;
+    justify-content: space-between;
+    font-size: 1.3rem;
 }
 
 .footer {
@@ -55,4 +121,13 @@ input, select, button {
     background-color:  rgb(1, 1, 1, .7);
     color: var(--primary-light);
     border-top: rgb(100, 100, 100, .5) 1px solid;
+}
+
+.fadeIn {
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }

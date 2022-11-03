@@ -122,6 +122,7 @@ const createFooter = () => {
 }
 
 const displayMain = (info) => {
+    const main = document.querySelector('.main');
     const weatherType = document.getElementById('weatherType');
     const cityName = document.getElementById('cityName');
     const temp = document.getElementById('temp');
@@ -130,13 +131,12 @@ const displayMain = (info) => {
     const humidity = document.getElementById('humidity');
     const wind = document.getElementById('wind');
 
-
     let weatherTypeInfo = info.weather[0].description;
     let cityNameInfo = info.name;
     let tempInfo = info.main.temp;
     let typeOfTempInfo = '\u00B0F';
     let feelsLikeInfo = info.main.feels_like;
-    let humidityInfo = `${info.main.humidity}%`;
+    let humidityInfo = `Humidity: ${info.main.humidity}%`;
     let windInfo = info.wind.speed;
 
     const getTitleCase = (string) => {
@@ -152,11 +152,11 @@ const displayMain = (info) => {
     };
 
     weatherTypeInfo = getTitleCase(weatherTypeInfo);
-    tempInfo = Math.round(((tempInfo-273.15)*(9/5)+32)*10)/10;
-    feelsLikeInfo = Math.round(((feelsLikeInfo-273.15)*(9/5)+32)*10)/10;
-    feelsLikeInfo = `${feelsLikeInfo}\u00B0F`
+    tempInfo = Math.round(((tempInfo-273.15)*(9/5)+32)*1)/1;
+    feelsLikeInfo = Math.round(((feelsLikeInfo-273.15)*(9/5)+32)*1)/1;
+    feelsLikeInfo = `Feels like: ${feelsLikeInfo}\u00B0F`
     windInfo = Math.round((windInfo*2.237)*10)/10;
-    windInfo = `${windInfo} mph`
+    windInfo = `Wind speed: ${windInfo} mph`
 
     weatherType.innerHTML = weatherTypeInfo;
     cityName.innerHTML = cityNameInfo;
@@ -165,6 +165,14 @@ const displayMain = (info) => {
     feelsLike.innerHTML = feelsLikeInfo;
     humidity.innerHTML = humidityInfo;
     wind.innerHTML = windInfo;
+
+    const resetAnimation = (el) => {
+        el.style.animation = 'none';
+        el.offsetHeight; /* trigger reflow */
+        el.style.animation = null; 
+    }
+
+    resetAnimation(main);
 }
 
 const displaySearchError = () => {
